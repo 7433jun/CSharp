@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Compile Remove="Compile.cs" />
+    <Compile Remove="Parameter.cs" />
     <Compile Remove="Start.cs" />
   </ItemGroup>
 
