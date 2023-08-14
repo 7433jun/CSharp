@@ -57,6 +57,7 @@ namespace Game
         }
         #endregion
     }
+
     public class EventManager
     {
         public void Add(int x, int y)
@@ -79,10 +80,12 @@ namespace Game
             Console.WriteLine(x / y);
         }
     }
+
     internal class Parameter
     {
         
     }
+
     delegate void Calculator(int x, int y);
 
     static void Main(string[] args)
