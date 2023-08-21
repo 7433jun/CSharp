@@ -12,6 +12,7 @@
     <Compile Remove="Compile.cs" />
     <Compile Remove="Constant.cs" />
     <Compile Remove="File.cs" />
+    <Compile Remove="Generic.cs" />
     <Compile Remove="Parameter.cs" />
     <Compile Remove="Property.cs" />
     <Compile Remove="Start.cs" />
