@@ -1,4 +1,6 @@
-﻿namespace Game
+﻿using System;
+
+namespace Game
 {
     public class GameObject
     {
@@ -31,6 +33,7 @@
         static void Function2()
         {
             throw new Exception("My Exception");
+            Console.WriteLine("실행"); // 실행안됨
         }
         #endregion
 

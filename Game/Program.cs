@@ -1,87 +1,10 @@
-﻿namespace Game
+﻿using Game.Single_Responsibility;
+using Game.Open_Closed;
+using Game.Interface_Segregation;
+using Game.Dependency_Inversion;
+
+namespace Game
 {
-    public class Dog
-    {
-        private int age;
-        private string name;
-
-        public Dog()
-        {
-            age = 1;
-            name = "멈뭄미";
-        }
-
-        public void Eat()
-        {
-            Console.WriteLine("Eat");
-        }
-
-        public void Walk()
-        {
-            Console.WriteLine("Walk");
-        }
-
-        public string Representation()
-        {
-            return $"Name : {name}, Age : {age}";
-        }
-    }
-
-    public class Information
-    {
-        public void Show(Dog dog)
-        {
-            Console.WriteLine(dog.Representation());
-        }
-    }
-
-    public abstract class TerranUnit
-    {
-        public abstract void Speak();
-    }
-
-    public class Marine : TerranUnit
-    {
-        public override void Speak()
-        {
-            Console.WriteLine("마린 생성");
-        }
-    }
-
-    public class Medic : TerranUnit
-    {
-        public override void Speak()
-        {
-            Console.WriteLine("메딕 생성");
-        }
-    }
-
-    public class Ghost : TerranUnit
-    {
-        public override void Speak()
-        {
-            Console.WriteLine("고스트 생성");
-        }
-    }
-
-    public class Firebet : TerranUnit
-    {
-        public override void Speak()
-        {
-            Console.WriteLine("파이어뱃 생성");
-        }
-    }
-
-    public class UnitManager
-    {
-        public void Create(TerranUnit unit)
-        {
-            unit.Speak();
-        }
-    }
-
-
-
     internal class Program
     {
         static void Main(string[] args)
@@ -114,7 +37,35 @@
             // 역할로 인터페이스를 분리시켜 클라이언트가 꼭 필요한 함수만
             // 이용할 수 있도록 해야합니다.
 
+            // Pistol pistol = new Pistol();
+            // pistol.Fire();
+            // pistol.ReLoad();
+            // 
+            // Rifle rifle = new Rifle();
+            // rifle.Fire();
+            // rifle.ReLoad();
+            // 
+            // Snipe snipe = new Snipe();
+            // snipe.Fire();
+            // snipe.ReLoad();
+            // snipe.Zoom();
 
+            #endregion
+
+            #region 의존관계 역전 원칙
+            // 의존 관계를 맺을 때 자신보다 변화하기 쉬운 것보다는
+            // 변화하지 않는 것에 의존해야 합니다.
+
+            ItemManager itemManager = new ItemManager();
+
+            itemManager.AddItem(new Potion());
+            itemManager.AddItem(new Potion());
+            itemManager.AddItem(new Gem());
+            itemManager.AddItem(new Gem());
+            itemManager.AddItem(new Gem());
+            itemManager.AddItem(new Stone());
+
+            itemManager.UseAllItem();
 
             #endregion
         }
