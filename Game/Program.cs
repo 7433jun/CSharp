@@ -2,6 +2,8 @@
 using Game.Open_Closed;
 using Game.Interface_Segregation;
 using Game.Dependency_Inversion;
+using Game.Liskov_Substitution;
+using Game.Virtual_Function;
 
 namespace Game
 {
@@ -56,16 +58,59 @@ namespace Game
             // 의존 관계를 맺을 때 자신보다 변화하기 쉬운 것보다는
             // 변화하지 않는 것에 의존해야 합니다.
 
-            ItemManager itemManager = new ItemManager();
+            //ItemManager itemManager = new ItemManager();
+            //
+            //itemManager.AddItem(new Potion());
+            //itemManager.AddItem(new Potion());
+            //itemManager.AddItem(new Gem());
+            //itemManager.AddItem(new Gem());
+            //itemManager.AddItem(new Gem());
+            //itemManager.AddItem(new Stone());
+            //
+            //itemManager.UseAllItem();
 
-            itemManager.AddItem(new Potion());
-            itemManager.AddItem(new Potion());
-            itemManager.AddItem(new Gem());
-            itemManager.AddItem(new Gem());
-            itemManager.AddItem(new Gem());
-            itemManager.AddItem(new Stone());
+            #endregion
 
-            itemManager.UseAllItem();
+            #region 리스코프 치환 원칙
+            // 상위 클래스와 하위 클래스가 있을 때 상위 클래스 객체를
+            // 호출하는 동작에서 하위 클래스 객체가 상위 클래스 객체를
+            // 완전하게 대체할 수 있어야 합니다.
+
+            // Rect rect = new Rect();
+            // rect.SetHeight(20);
+            // rect.SetWidth(10);
+            // Console.WriteLine(rect.GetArea());
+            // 
+            // Square square = new Square();
+            // square.SetSide(20);
+            // Console.WriteLine(square.GetArea());
+            #endregion
+
+            #region 가상 함수
+            
+            Unit unit = new Unit();
+
+            ConsoleKeyInfo cki;
+
+            while (true)
+            {
+                cki = Console.ReadKey(true);
+
+                switch (cki.Key)
+                {
+                    case ConsoleKey.NumPad1:
+                        unit = new Vulture();
+                        break;
+                    case ConsoleKey.NumPad2:
+                        unit = new Tank();
+                        break;
+                    case ConsoleKey.NumPad3:
+                        unit = new Goliath();
+                        break;
+                    default:
+                        break;
+                }
+            }
 
             #endregion
         }
