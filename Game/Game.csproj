@@ -11,11 +11,29 @@
     <Compile Remove="Abstract.cs" />
     <Compile Remove="Compile.cs" />
     <Compile Remove="Constant.cs" />
+    <Compile Remove="Dependency Inversion\Item.cs" />
+    <Compile Remove="Dependency Inversion\ItemManager.cs" />
     <Compile Remove="File.cs" />
     <Compile Remove="Generic.cs" />
+    <Compile Remove="Interface Segregation\InterfaceManager.cs" />
+    <Compile Remove="Interface Segregation\ISP.cs" />
+    <Compile Remove="Liskov Substitution\LSP.cs" />
+    <Compile Remove="Open Closed\OCP.cs" />
     <Compile Remove="Parameter.cs" />
     <Compile Remove="Property.cs" />
+    <Compile Remove="Single Responsibility\SRP.cs" />
+    <Compile Remove="SOLID &amp; Virtual Function.cs" />
     <Compile Remove="Start.cs" />
+    <Compile Remove="Virtual Function\Terran.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Dependency Inversion\" />
+    <Folder Include="Interface Segregation\" />
+    <Folder Include="Liskov Substitution\" />
+    <Folder Include="Open Closed\" />
+    <Folder Include="Single Responsibility\" />
+    <Folder Include="Virtual Function\" />
   </ItemGroup>
 
 </Project>
