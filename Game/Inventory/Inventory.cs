@@ -45,14 +45,14 @@ namespace Game.Inventory_Class
             }
         }
 
-        public int Getx()
+        public int X
         {
-            return x;
+            get { return x; }
         }
 
-        public int Gety()
+        public int Y
         {
-            return y;
+            get { return y; }
         }
 
         public int GetSize()
@@ -86,7 +86,7 @@ namespace Game.Inventory_Class
                 }
                 else
                 {
-                    Console.Write(GetItem(i).GetShape() + " ");
+                    Console.Write(GetItem(i).Shape + " ");
                 }
 
                 if ((i + 1) % x == 0)
@@ -97,8 +97,8 @@ namespace Game.Inventory_Class
 
             if (GetItem(cursor.Position()) != null)
             {
-                Console.WriteLine("아이템 이름 : " + GetItem(cursor.Position()).GetName());
-                Console.WriteLine("아이템 가격 : " + GetItem(cursor.Position()).GetPrice());
+                Console.WriteLine("아이템 이름 : " + GetItem(cursor.Position()).Name);
+                Console.WriteLine("아이템 가격 : " + GetItem(cursor.Position()).Price);
             }
         }
     }
@@ -107,16 +107,18 @@ namespace Game.Inventory_Class
     {
         public int x;
         public int y;
+        private int row;
 
-        public Cursor()
+        public Cursor(Inventory inventory)
         {
             x = 0;
             y = 0;
+            row = inventory.X;
         }
 
         public int Position()
         {
-            return x + y * 4;
+            return x + y * row;
         }
 
         public void Input(ConsoleKeyInfo cki, Inventory inventory)
@@ -130,7 +132,7 @@ namespace Game.Inventory_Class
                     }
                     break;
                 case ConsoleKey.RightArrow:
-                    if (x < inventory.Getx() - 1)
+                    if (x < inventory.X - 1)
                     {
                         x++;
                     }
@@ -142,7 +144,7 @@ namespace Game.Inventory_Class
                     }
                     break;
                 case ConsoleKey.DownArrow:
-                    if (y < inventory.Gety() - 1)
+                    if (y < inventory.Y - 1)
                     {
                         y++;
                     }
@@ -159,7 +161,7 @@ namespace Game.Inventory_Class
                 case ConsoleKey.NumPad3:
                     inventory.AddItem(new Iron());
                     break;
-                case ConsoleKey.Backspace:
+                case ConsoleKey.Spacebar:
                     inventory.RemoveItem(Position());
                     break;
                 default:

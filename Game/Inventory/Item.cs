@@ -19,19 +19,19 @@ namespace Game.Inventory_Class
             shape = "■";
         }
 
-        public string GetName()
+        public string Name
         {
-            return name;
+            get { return name; }
         }
 
-        public int GetPrice()
+        public int Price
         {
-            return price;
+            get { return price; }
         }
 
-        public string GetShape()
+        public string Shape
         {
-            return shape;
+            get { return shape; }
         }
     }
 

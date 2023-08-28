@@ -8,19 +8,19 @@ namespace Game
     {
         static void Main(string[] args)
         {
-            int x = 4;
-            int y = 5;
-            Inventory inventory = new Inventory(x, y);
-            Cursor cursor = new Cursor();
-
-            while (true)
-            {
-                Console.Clear();
-
-                inventory.Render(cursor);
-
-                cursor.Input(Console.ReadKey(true), inventory);
-            }
+            //int x = 4;
+            //int y = 5;
+            //Inventory inventory = new Inventory(x, y);
+            //Cursor cursor = new Cursor(inventory);
+            //
+            //while (true)
+            //{
+            //    Console.Clear();
+            //
+            //    inventory.Render(cursor);
+            //
+            //    cursor.Input(Console.ReadKey(true), inventory);
+            //}
         }
     }
 }
