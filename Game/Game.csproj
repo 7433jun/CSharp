@@ -17,6 +17,9 @@
     <Compile Remove="Generic.cs" />
     <Compile Remove="Interface Segregation\InterfaceManager.cs" />
     <Compile Remove="Interface Segregation\ISP.cs" />
+    <Compile Remove="Inventory\Inventory.cs" />
+    <Compile Remove="Inventory\Inventory_Main.cs" />
+    <Compile Remove="Inventory\Item.cs" />
     <Compile Remove="Liskov Substitution\LSP.cs" />
     <Compile Remove="Open Closed\OCP.cs" />
     <Compile Remove="Parameter.cs" />
@@ -30,6 +33,7 @@
   <ItemGroup>
     <Folder Include="Dependency Inversion\" />
     <Folder Include="Interface Segregation\" />
+    <Folder Include="Inventory\" />
     <Folder Include="Liskov Substitution\" />
     <Folder Include="Open Closed\" />
     <Folder Include="Single Responsibility\" />
