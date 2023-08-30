@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.Design;
+using System.Diagnostics;
 using static Game.Program;
 
 namespace Game
@@ -42,9 +43,17 @@ namespace Game
         {
             public Bullet[] bullet = new Bullet[5];
 
-            private int x;
-            private int y;
+            private int x = 10;
+            private int y = 15;
             private string shape = "▲";
+
+            public Player()
+            {
+                for(int i = 0; i < 5; i++)
+                {
+                    bullet[i] = new Bullet();
+                }
+            }
 
             public int X
             {
@@ -70,7 +79,7 @@ namespace Game
                     {
                         element.active = true;
                         element.X = x;
-                        element.Y = 15;
+                        element.Y = y;
                         break;
                     }
                 }
@@ -82,7 +91,7 @@ namespace Game
         {
             //public int[] index = new int[5];
 
-            private int x = 10;
+            private int x;
             private int y;
             private string shape = "●";
             public bool active;
@@ -154,7 +163,7 @@ namespace Game
                         }
                         break;
                     case ConsoleKey.RightArrow:
-                        if(player.X < 20)
+                        if(player.X < 50)
                         {
                             player.X++;
                         }
@@ -222,12 +231,16 @@ namespace Game
             Progress progress = new Progress(player);
             Render render = new Render(player);
 
-            while(true)
+            while (true)
             {
                 Console.Clear();
-                progress.Input(Console.ReadKey(true));
+                if (Console.KeyAvailable)
+                {
+                    progress.Input(Console.ReadKey(true));
+                }
                 progress.BulletMove();
                 render.Draw();
+
                 Thread.Sleep(100);
             }
         }
